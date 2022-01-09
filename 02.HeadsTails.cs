@@ -1,4 +1,4 @@
-namespace ProgrammingChallenges;
+﻿namespace ProgrammingChallenges;
 
 class HeadsTails: IChallange
 {
