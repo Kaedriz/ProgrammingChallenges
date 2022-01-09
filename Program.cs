@@ -13,8 +13,19 @@ class Program
         Console.WriteLine("Hi!");
         Console.WriteLine("This is a program which aggregates all the other mini programs that I wrote for ProgrammingChallanges.");
         Console.WriteLine("Here are the ones that I did already:");
+        // Iterating in array with programs
         Console.WriteLine();
-        Console.WriteLine(" 01. Guess The Number");
+        for (int i = 0; i < ChallangeList.Count(); i++)
+        {
+            if (i < 9)
+            {
+                Console.WriteLine($" 0{i + 1} - {ChallangeList[i].Name()}");
+            }
+            else
+            {
+                Console.WriteLine($" {i + 1} - {ChallangeList[i].Name()}");
+            }
+        }
         Console.WriteLine();
         Console.WriteLine("Type number to select mini program.");
         Console.Write("Number: ");
