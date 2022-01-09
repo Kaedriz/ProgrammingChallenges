@@ -10,7 +10,7 @@ class HeadsTails: IChallange
     {
         // Generating random number
         Random Random = new Random();
-        return Random.Next(1, 101);
+        return Random.Next(0, 2);
     }
     public void Start()
     {
