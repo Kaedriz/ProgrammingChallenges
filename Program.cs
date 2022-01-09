@@ -8,6 +8,11 @@ public interface IChallange
 
 class Program
 {
+    static private List<IChallange> ChallangeList = new List<IChallange>()
+    {
+        new GuessTheNumber(),
+        new HeadsTails()
+    };
     static void Main()
     {
         Console.WriteLine("Hi!");
