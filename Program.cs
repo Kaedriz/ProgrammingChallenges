@@ -42,5 +42,6 @@ class Program
                 Console.WriteLine("Brak programu o takim numerze.");
                 break;
         }
+        Console.Clear();
     }
 }
