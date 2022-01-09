@@ -31,17 +31,15 @@ class Program
         Console.Write("Number: ");
         string? input = Console.ReadLine();
 
-        switch(int.Parse(input))
+        // Redo to calling challenge from list
+        // or give error when there isn't any
+        int inputNumber;
+        while (!int.TryParse(input, out inputNumber))
         {
-            case 1:
-                // Odpal
-                var Program = new GuessTheNumber();
-                Program.Start();
-                break;
-            default:
-                Console.WriteLine("Brak programu o takim numerze.");
-                break;
+            Console.WriteLine("You didn't type number in correct format. Please try again using only digits.");
+            input = Console.ReadLine();
         }
         Console.Clear();
+        ChallangeList[inputNumber - 1].Start();
     }
 }
