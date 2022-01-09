@@ -1,6 +1,6 @@
-﻿namespace ProgrammingChallenges;
+namespace ProgrammingChallenges;
 
-class HeadsTails
+class HeadsTails: IChallange
 {
     private static int Random()
     {
