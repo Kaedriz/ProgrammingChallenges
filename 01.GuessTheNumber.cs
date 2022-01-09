@@ -27,7 +27,6 @@ class GuessTheNumber: IChallange
     }
     public void Start()
     {
-        Console.Clear();
         Console.WriteLine("I'm gonna generate random number from 1 to 100.");
         Console.WriteLine("Try to guess what that number might be. Don't worry, I will help you.");
         Console.WriteLine("Now, try guessing!");
