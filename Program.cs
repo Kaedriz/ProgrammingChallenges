@@ -1,4 +1,10 @@
-﻿namespace ProgrammingChallenges;
+namespace ProgrammingChallenges;
+
+public interface IChallange
+{
+    string Name();
+    void Start();
+}
 
 class Program
 {
