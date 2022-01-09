@@ -1,7 +1,11 @@
-﻿namespace ProgrammingChallenges;
+namespace ProgrammingChallenges;
 
-class GuessTheNumber
+class GuessTheNumber: IChallange
 {
+    public string Name()
+    {
+        return "Guess The Number";
+    }
     private bool guessed = false;
     private static int Random()
     {
