@@ -7,8 +7,8 @@ My attempt at ProgrammingChallenges by Moresiu ([https://github.com/Morasiu/Prog
 ### Progress
 
 - [x] 01
-- [ ] 02 - Working
-- [ ] 03
+- [X] 02
+- [ ] 03 - Working
 - [ ] 04
 - [ ] 05
 - [ ] 06
