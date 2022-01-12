@@ -2,10 +2,7 @@
 
 class HeadsTails: IChallange
 {
-    public string Name()
-    {
-        return "Heads Or Tails";
-    }
+    public string Name() => "Heads Or Tails";
     private static int Random()
     {
         // Generating random number

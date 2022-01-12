@@ -2,10 +2,7 @@ namespace ProgrammingChallenges;
 
 class GuessTheNumber: IChallange
 {
-    public string Name()
-    {
-        return "Guess The Number";
-    }
+    public string Name() => "Guess The Number";
     private bool guessed = false;
     private static int Random()
     {
