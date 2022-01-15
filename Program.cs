@@ -38,7 +38,7 @@ class Program
         Console.Write("Number: ");
         string? input = Console.ReadLine();
 
-        // Redo to calling challenge from list
+        // Try input number and start challenge with that number
         // or give error when there isn't any
         int inputNumber;
         while (!int.TryParse(input, out inputNumber))
