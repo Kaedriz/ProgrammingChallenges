@@ -125,7 +125,7 @@ class TemperatureConverter : IChallange
             }
             else
             {
-                Console.WriteLine("Wrong format. Write only letter and eventualy dot.");
+                Console.WriteLine("Wrong format. Write only numbers and eventually comma.");
             }
         }
         double convertedValue = Convert(inputValue, inputFrom, inputTo);
