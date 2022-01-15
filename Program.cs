@@ -11,7 +11,8 @@ class Program
     static private List<IChallange> ChallangeList = new List<IChallange>()
     {
         new GuessTheNumber(),
-        new HeadsTails()
+        new HeadsTails(),
+        new TemperatureConverter()
     };
     static void Main()
     {
