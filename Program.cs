@@ -23,6 +23,7 @@ class Program
         Console.WriteLine();
         for (int i = 0; i < ChallangeList.Count(); i++)
         {
+            // Add leading 0 if number is lesser that 10, ex. 5 to 05
             if (i < 9)
             {
                 Console.WriteLine($" 0{i + 1} - {ChallangeList[i].Name()}");
