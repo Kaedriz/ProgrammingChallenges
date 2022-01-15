@@ -9,49 +9,63 @@ enum TemperatureTypes
 class TemperatureConverter : IChallange
 {
     public string Name() => "Temperature Converter";
-    private static float Convert(float value, TemperatureTypes from, TemperatureTypes to)
+    private static double Convert(double value, TemperatureTypes from, TemperatureTypes to)
     {
-        float valueInKelvin = value;
+        double valueInKelvin;
 
         // First converting input to Kelvin
         if (from == TemperatureTypes.Celsius)
         {
-            valueInKelvin = value + (float)273.15;
+            valueInKelvin = value + 273.15;
         }
         else if (from == TemperatureTypes.Fahrenheit)
         {
-            valueInKelvin = (value + (float)459.67) * (5/9);
+            valueInKelvin = (value + 459.67) * (5/9);
         }
         else if (from == TemperatureTypes.Rankine)
         {
-            valueInKelvin = value * (5/9);
+            valueInKelvin = value * ((double)5/9);
+        }
+        else
+        {
+            valueInKelvin = value;
         }
 
         // Then converting from Kelvin to others
-        if (to == TemperatureTypes.Kelvin)
+        if (to == TemperatureTypes.Celsius)
         {
-            return valueInKelvin;
-        }
-        else if (to == TemperatureTypes.Celsius)
-        {
-            return valueInKelvin - (float)273.15;
+            return valueInKelvin - 273.15;
         }
         else if (to == TemperatureTypes.Fahrenheit)
         {
-            return valueInKelvin * (9/5) - (float)459.67;
+            return valueInKelvin * 1.8 - 459.67;
         }
-        else if (to == TemperatureTypes.Rankine)
+        else if(to == TemperatureTypes.Rankine)
         {
-            return valueInKelvin * (9/5);
+            return valueInKelvin * 1.8;
+        }
+        else
+        {
+            return valueInKelvin;
         }
     }
-    private TemperatureTypes? InputParse(string input)
+    private bool InputParsable(string? input)
+    {
+        if(input == null) return false;
+        string strippedInput = input.Trim();
+
+        if (strippedInput == "1") return true;
+        else if (strippedInput == "2") return true;
+        else if (strippedInput == "3") return true;
+        else if (strippedInput == "4") return true;
+        else return false;
+    }
+    private TemperatureTypes InputParse(string input)
     {
         if (input == "1") return TemperatureTypes.Kelvin;
         else if (input == "2") return TemperatureTypes.Celsius;
         else if (input == "3") return TemperatureTypes.Fahrenheit;
-        else if (input == "4") return TemperatureTypes.Rankine;
-        else return null;
+        else return TemperatureTypes.Rankine;
     }
     public void Start()
     {
@@ -63,46 +77,59 @@ class TemperatureConverter : IChallange
         Console.WriteLine(" 4. Rankine");
 
         // Make a while loop until user writes good input
-        TemperatureTypes inputFrom;
-        TemperatureTypes inputTo;
-        float inputValue;
+        TemperatureTypes inputFrom = TemperatureTypes.Kelvin;
+        TemperatureTypes inputTo = TemperatureTypes.Kelvin;
+        double inputValue = 0;
 
-        while()
+        string? input;
+        bool isInputParsable = false;
+
+        while(!isInputParsable)
         {
             Console.Write("From: ");
-            string? input = Console.ReadLine();
-            InputParse(input);
+            input = Console.ReadLine();
+            if (InputParsable(input))
+            {
+                isInputParsable = true;
+                inputFrom = InputParse(input);
+            }
+            else Console.WriteLine("Wrong format. Write only number corresponding to temperature.");
+        }
+        // Reseting
+        isInputParsable = false;
 
+        while (!isInputParsable)
+        {
+            Console.Write("To: ");
+            input = Console.ReadLine();
+            if (InputParsable(input))
+            {
+                isInputParsable = true;
+                inputTo = InputParse(input);
+            }
+            else Console.WriteLine("Wrong format. Write only number corresponding to temperature.");
         }
+        // Reseting
+        isInputParsable = false;
 
-        if (input != null)
+        while (!isInputParsable)
         {
+            Console.Write("Temperature value to convert: ");
+            input = Console.ReadLine().Trim();
+            // Checking if input is of type double, and then setting its value to 'inputValue'
+            Console.WriteLine(inputValue);
+            if (double.TryParse(input, out inputValue))
+            {
+                Console.WriteLine(inputValue);
+                isInputParsable = true;
+            }
+            else
+            {
+                Console.WriteLine("Wrong format. Write only letter and eventualy dot.");
+            }
         }
-        else
-        {
-            Console.WriteLine("Wrong format. Write only letter corresponding to temperature.");
-        }
-
-        Console.Write("To: ");
-        input = Console.ReadLine();
-        if (input != null)
-        {
-            InputParse(input);
-        }
-        else
-        {
-            Console.WriteLine("Wrong format. Write only letter corresponding to temperature.");
-        }
-
-        Console.Write("Temperature value to convert: ");
-        input = Console.ReadLine();
-        if (input != null)
-        {
-
-        }
-        else
-        {
-            Console.WriteLine("Wrong format. Write only letter and eventualy dot.");
-        }
+        double convertedValue = Convert(inputValue, inputFrom, inputTo);
+        Console.WriteLine(inputValue);
+        Console.WriteLine($"After converting {Math.Round(inputValue, 2)} ({inputFrom}) is {Math.Round(convertedValue, 2)} ({inputTo})");
     }
 }
