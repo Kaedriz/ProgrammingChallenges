@@ -8,8 +8,8 @@ My attempt at ProgrammingChallenges by Moresiu ([https://github.com/Morasiu/Prog
 
 - [x] 01
 - [X] 02
-- [ ] 03 - Working
-- [ ] 04
+- [X] 03
+- [ ] 04 - Working
 - [ ] 05
 - [ ] 06
 - [ ] 07
